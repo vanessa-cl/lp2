@@ -3,6 +3,7 @@ import java.util.*;
 public class CadernetaPoupancaUtil {
 
     public static void main(String[] args) {
+        // Lista de cadernetas de poupança
         ArrayList<CadernetaPoupanca> cadernetasLista = new ArrayList<CadernetaPoupanca>();
 
         // Cadernetas de poupança para teste
@@ -26,6 +27,7 @@ public class CadernetaPoupancaUtil {
             menu();
             opcao = s.nextInt();
             switch (opcao) {
+                // Cadastro de caderneta de poupança
                 case 1:
                     System.out.println("Digite o nome do titular: ");
                     titular = s.next();
@@ -37,6 +39,7 @@ public class CadernetaPoupancaUtil {
                     cadernetasLista.add(novaCaderneta);
                     System.out.println("Cadastro realizado com sucesso!");
                     break;
+                // Atualização de rendimento de caderneta de poupança
                 case 2:
                     System.out.println("Digite o nome do titular da caderneta que deseja atualizar o rendimento: ");
                     titular = s.next();
@@ -58,6 +61,7 @@ public class CadernetaPoupancaUtil {
                     System.out.println("Novo rendimento: " + cadernetaEncontrada.getRendimentoAcumulado());
                     System.out.println("Rendimento atualizado com sucesso!");
                     break;
+                // Consulta de cadernetas de poupança por dia de aniversário
                 case 3:
                     System.out.println("Digite o dia de aniversário que deseja consultar: ");
                     diaAniversario = s.nextInt();
@@ -68,6 +72,7 @@ public class CadernetaPoupancaUtil {
                         }
                     }
                     break;
+                // Consulta de cadernetas de poupança por titular
                 case 4:
                     System.out.println("Digite o nome do titular que deseja consultar as cadernetas: ");
                     titular = s.next();
@@ -78,6 +83,7 @@ public class CadernetaPoupancaUtil {
                         }
                     }
                     break;
+                // Encerrar
                 case 5:
                     encerrar = true;
                     System.out.println("Encerrando o programa...");
@@ -93,9 +99,9 @@ public class CadernetaPoupancaUtil {
                     }
                     System.out.println("Quantidade total de dias de aniversário com rendimentos acumulados: " + diasAniversario.size());
                     System.out.println("Titulares com rendimento acumulado igual a zero: ");
-                    for (String titularZero : titulares) {
-                        System.out.println(titularZero);
-                    }
+                    do {
+                        System.out.println(titulares.poll());
+                    } while (!titulares.isEmpty());
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
